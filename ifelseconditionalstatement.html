@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title="" style="background-color: beige;">
+        <div class="c-container">
+            
+            <lightning-layout horizontal-align="space">
+                <lightning-layout-item padding="around-small">
+                    <div class="custom-box">
+    <p style="font-size: large; color:rgb(0, 162, 255)"><b>Permanent Address
+    </b></p>
+    <p>Enter permanent address as govt Id proof</p>
+    <div>
+      <lightning-input type="text" onchange={handleAddressline1} label="Address Line1"></lightning-input>
+      <lightning-input type="text" onchange={handleAddressline2} label="Address Line2"></lightning-input>
+      <lightning-input type="text" onchange={handlelandmark}  label="Landmark"></lightning-input>
+      <lightning-input type="text" onchange={handlezipcode} label="Zip Code"></lightning-input>
+    </div>
+    </div>
+
+    </lightning-layout-item>
+    <lightning-layout-item padding="around-small">
+        <div class="custom-box">
+  <p style="font-size: large; color:rgb(0, 162, 255)"><b>Current Address
+  </b></p>
+    <lightning-input type="checkbox" onchange={handlecheckbox} data-id="checkbox" label="Same as Permanent Address" ></lightning-input>
+    <div  >
+    <template if:false={ischecked}>
+    <lightning-input type="text"  label="Address Line1" class="valueColor"></lightning-input>
+    <lightning-input type="text"  label="Address Line2" ></lightning-input>
+    <lightning-input type="text"  label="Landmark" ></lightning-input>
+    <lightning-input type="text"  label="Zip Code" ></lightning-input> 
+    </template>
+    </div>
+    <div>
+    <template if:true={ischecked}>
+        <lightning-input type="text" value={addressline1currentvalue} label="Address Line1"></lightning-input>
+        <lightning-input type="text" value={addressline2currentvalue} label="Address Line2"></lightning-input>
+        <lightning-input type="text" value={landmarkcurrentvalue} label="Landmark" ></lightning-input>
+        <lightning-input type="text" value={zipcodecurrentvalue} label="Zip Code"></lightning-input> 
+    </template>
+    </div>
+    </div>
+</lightning-layout-item>
+</lightning-layout>
+</div>
+</lightning-card>
+</template>
