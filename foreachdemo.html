@@ -1,0 +1,28 @@
+<template>
+
+    <lightning-card title="For:Each Demo" icon-name="custom:custom88">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+              <thead>
+                <tr class="slds-line-height_reset" style="background-color: rgb(130, 139, 139);font:bolder">
+                    <th scope="col">Index</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+              <template for:each={contacts} for:item="con" for:index="index">
+                <tr class="slds-hint-parent" key={con.Id}>
+                    <td>{index}</td>
+                    <td>{con.Id}</td>
+                    <td>{con.Name}</td>
+                    <td>{con.Email}</td>
+                </tr>
+              </template>
+            </tbody>
+            </table>
+        <div class="map-root" lwc:dom="manual"></div>
+
+      </lightning-card>
+
+</template>
