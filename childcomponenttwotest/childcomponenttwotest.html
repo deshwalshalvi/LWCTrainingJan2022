@@ -1,0 +1,49 @@
+<template>
+    <lightning-card title="">
+        <div class="slds-box">
+          <div class="c-container">
+            <lightning-layout horizontal-align="space">
+                <lightning-layout-item padding="around-small">
+                    <div class="custom-box">
+                      <h3 slot="title">
+                        <lightning-icon icon-name="custom:custom103" alternative-text="Child Two">
+                        </lightning-icon>
+                        Child Two
+                      </h3></div>
+                </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                  <lightning-layout-item padding="around-small">
+                    <div class="custom-box">
+                        <template if:true={isresetall}>
+                            <lightning-button variant="success"
+                            label="Select"
+                            icon-position="left"
+                            onclick={resetItem} >
+                            </lightning-button>
+                            </template>
+                    
+                        <template if:false={isresetall}>
+                            <template if:true={isselected}>
+                                <lightning-button variant="success"
+                                label="Select"
+                                icon-position="left"
+                                onclick={selectedItem} >
+                                </lightning-button>
+                                </template>
+                            <template if:true={isdeselected}>
+                            <lightning-button variant="destructive"
+                            label="DeSelect"
+                            icon-position="left"
+                            onclick={deselectedItem} >
+                            </lightning-button>
+                            </template>
+                     </template>
+                        </div>
+                </lightning-layout-item>
+                </lightning-layout>
+                </div>
+              </div>
+                </lightning-card>
+
+</template>

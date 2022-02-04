@@ -1,0 +1,58 @@
+<template>
+    <lightning-card title="">
+        <div class="slds-border_top"></div>
+          <div class="c-container">
+            <lightning-layout horizontal-align="right">
+              <lightning-layout-item padding="around-small">
+              <lightning-icon icon-name="custom:custom15" alternative-text="Grand parent"></lightning-icon>
+              </lightning-layout-item>
+              <lightning-layout-item padding="around-small">
+              <h1 style="font-weight: bold;">Parent</h1>
+            </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout horizontal-align="space">
+                <lightning-layout-item padding="around-small">
+                    <div class="custom-box">
+                      <h3 slot="title">
+                        Child : One  {isSelectedone}
+                      </h3></div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small">
+                  <div class="custom-box">
+                    <h3 slot="title">
+                    Child : Two {isSelectedtwo}
+                    </h3></div>
+                 </lightning-layout-item> 
+                 <lightning-layout-item padding="around-small">
+                  <div class="custom-box">
+                    <h3 slot="title">
+                     Child : Three {isSelectedthree}
+                    </h3></div>
+                 </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout horizontal-align="space">
+                  <lightning-layout-item padding="around-small">
+                      <div class="custom-box">
+                          <lightning-layout>
+                            <c-childonecomponenttest onchildpass={fetchValueone} key={isresetone} isresetall={isresetone}>
+                            </c-childonecomponenttest>
+                            </lightning-layout>
+                      </div>
+                  </lightning-layout-item>
+                  <lightning-layout-item padding="around-small">
+                    <div class="custom-box">
+                        <c-childcomponenttwotest onchildpass={fetchValuetwo} key={isresettwo} isresetall={isresettwo}>
+                        </c-childcomponenttwotest>
+                  </div>
+                   </lightning-layout-item> 
+                   <lightning-layout-item padding="around-small">
+                    <div class="custom-box">
+                        <c-childcomponentthree onchildpass={fetchValuethree} key={isresetthree} isresetall={isresetthree}>
+                        </c-childcomponentthree>
+                   </div>
+                   </lightning-layout-item>
+                  </lightning-layout>
+      </div>
+      </lightning-card>   
+
+</template>

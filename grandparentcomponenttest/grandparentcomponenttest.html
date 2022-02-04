@@ -1,0 +1,34 @@
+<template>
+    <article class="slds-card">
+    
+        <div class="c-container">
+          <lightning-layout horizontal-align="right">
+            <lightning-layout-item padding="around-small">
+          <lightning-icon icon-name="custom:custom84" alternative-text="Grand parent"></lightning-icon>
+          <h1 style="font-weight: bold;">Grand Parent</h1>
+         </lightning-layout-item>
+         </lightning-layout>
+          <lightning-layout horizontal-align="right">
+              <lightning-layout-item padding="around-small">
+                  <div class="custom-box">
+                    <h3 slot="title">
+                        {selecteditem} of 3 Children selected
+                    </h3></div>
+              </lightning-layout-item>
+              <lightning-layout-item padding="around-small">
+                  <div class="custom-box">
+                    <lightning-button variant="brand"
+                                      label="Reset All"
+                                      icon-position="left"
+                                      onclick={deselectedItem}>
+                    </lightning-button></div>
+              </lightning-layout-item>
+              </lightning-layout>
+              <lightning-layout>
+                <c-parentcomponenttest onpass={fetchValuefromparent} key={reset} isresetall={reset}>
+                </c-parentcomponenttest>
+              </lightning-layout>
+    </div>
+    </article>
+
+</template>
