@@ -1,0 +1,46 @@
+<template>
+  <div class="slds-text-align_right">
+    <template if:false={isHide}>
+      <lightning-button variant="brand-outline"
+      label="Show all Opportunity Fields"
+      icon-position="right"
+      onclick={loadAllFields} >
+      </lightning-button>
+      </template>
+      <template if:true={isHide}>
+      <lightning-button variant="destructive"
+      label="Remove Extra Fields"
+      icon-position="right"
+      onclick={removeAllFields} >
+      </lightning-button>
+  </template>
+</div>
+                    <lightning-record-edit-form object-api-name="Opportunity" onsuccess={handleSuccess}>
+                      <lightning-messages></lightning-messages>
+                      <lightning-layout horizontal-align="space">
+                        <lightning-layout-item size="6"  padding="around-small">
+                            <lightning-input-field field-name="Name"> </lightning-input-field>
+                            <lightning-input-field field-name="StageName"> </lightning-input-field>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6"  padding="around-small">
+                            <lightning-input-field field-name="CloseDate" required="true"> </lightning-input-field>
+                            <lightning-input-field field-name="AccountId"> </lightning-input-field>
+                        </lightning-layout-item>
+                        
+                      </lightning-layout>
+                      <lightning-layout horizontal-align="left">
+                        <template if:true={isHide}>
+                          <lightning-layout-item size="6"  padding="around-small">
+                          <template for:each={recFields} for:item="con">
+                            <lightning-input-field key={con.key} field-name={con.value}> </lightning-input-field>
+                        </template>
+                        </lightning-layout-item>
+                        </template>
+                      </lightning-layout>
+                      <div class="slds-text-align_center">
+                      <lightning-button variant="Neutral" type="Cancel" name="Cancel" label="Cancel" onclick={closeModal} class="slds-m-left_x-small"></lightning-button>
+                      <lightning-button variant="brand" type="submit" name="Save" label="Save" class="slds-m-left_x-small"></lightning-button>
+                      </div>
+                  </lightning-record-edit-form>
+
+</template>
