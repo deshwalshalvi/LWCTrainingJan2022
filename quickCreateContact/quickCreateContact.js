@@ -9,6 +9,8 @@ export default class QuickCreateContact extends LightningElement {
 
     @track recFields = [];
 
+    @track arrayfield = [];
+
     handleSuccess(event) {
          if(this.recordid !== null){
              this.dispatchEvent(new ShowToastEvent({
@@ -42,12 +44,24 @@ export default class QuickCreateContact extends LightningElement {
 
     loadAllFields(event) {
         this.isHide = true;
+
+        let fields = this.template.querySelectorAll('lightning-input-field');
+        for(var i=0;i < fields.length;i++){
+            console.log('fields[i].fieldName'+fields[i].fieldName);
+            this.arrayfield.push(fields[i].fieldName);
+        }
+
         getFieldLabels({'objectName':'Contact'}).then(result => {
             let response = JSON.parse(result);
             for (let key in response) {
-                this.recFields.push({value:response[key], key:key});
+                if(this.arrayfield.includes(key))
+                {
+                    console.log('It is available');
+                }
+                else{
+                    this.recFields.push({value:response[key], key:key});
+                }
              }
-             console.log('this.recFields'+this.recFields);
           })
           .catch(error => {
             this.error = error.body.message;
