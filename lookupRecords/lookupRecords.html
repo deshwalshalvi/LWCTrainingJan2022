@@ -1,0 +1,94 @@
+<template>
+    <div class="slds-size_1-of-2">
+    <lightning-card  variant="Narrow" >
+    <div>
+        <template if:true={accRecord}>
+                <lightning-icon icon-name="custom:custom40" title="Search Account" size="xx-small">
+                </lightning-icon> Search Account 
+                <lightning-input type="text"
+                value={searchValue}
+                onchange={handleStringChange}>
+                </lightning-input>
+        </template>
+     </div>
+
+
+                    <template if:true={accRecord}>
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-m-top_small">
+                            <tbody>   
+                               <template for:each={accountRecords} for:item="acc">
+                                  <tr class="slds-hint-parent" key={acc.Id} onclick={selectedAccount} data-id ={acc.Id} >
+                                    
+                                     <td>
+                                        <div class="slds-truncate">{acc.Name}</div>
+                                     </td>
+                                     <td>
+                                        <div class="slds-truncate">{acc.AccountSource}</div>
+                                     </td>
+                                    
+                                  </tr>
+                               </template>
+                            </tbody>
+                         </table>
+                        </template>
+
+                        <template if:true={conRecord}>
+                           
+                            <div class="slds-box" >
+                                    <lightning-icon icon-name="custom:custom58" title="Selected Account" size="xx-small">
+                                    </lightning-icon>  Selected Account
+                               </div>
+                             <div class="slds-box slds-text-title_bold" style="background-color: rgb(248 241 241);">
+                                  {accountName}</div>
+                             <div class="slds-box">
+                                <lightning-button label="Reset Search"
+                                onclick={handleSearchChange}
+                                class="slds-align_absolute-center"
+                                variant="brand"></lightning-button>
+                             </div>
+                      <div  class="slds-box">
+                                <lightning-icon icon-name="custom:custom63" title="Associated Contacts" size="xx-small">
+                                </lightning-icon>  Associated Contacts
+                         <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-m-top_small">
+                            <thead>
+                                <tr class="slds-line-height_reset">
+
+                                   <th class="" scope="col">
+                                      <div class="slds-truncate" title="First Name">First Name</div>
+                                   </th>
+                                   <th class="" scope="col">
+                                      <div class="slds-truncate" title="Last Name">Last Name</div>
+                                   </th>
+                                   <th class="" scope="col">
+                                      <div class="slds-truncate" title="Phone">Account</div>
+                                   </th>
+                                  
+                                </tr>
+                             </thead>
+                            <tbody>   
+                               <template for:each={contactRecords} for:item="con">
+                                  <tr class="slds-hint-parent" key={con.Id} data-id ={con.Id} >
+                                    
+                                    <td>
+                                        <div class="slds-truncate">{con.FirstName}</div>
+                                     </td>
+                                     <td>
+                                        <div class="slds-truncate">{con.LastName}</div>
+                                     </td>
+                                     <td>
+                                        <div class="slds-truncate">{con.Account.Name}</div>
+                                     </td>
+                                     
+
+                                  </tr>
+                               </template>
+                            </tbody>
+                         </table>
+                         </div>
+                        </template>
+                   
+
+                    </lightning-card>
+                    
+                </div>
+</template>
