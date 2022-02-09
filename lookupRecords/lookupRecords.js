@@ -52,6 +52,7 @@ export default class LookupRecords extends LightningElement {
         this.accRecord = true;
         this.conRecord = false; 
         this.accountRecords = '';
+        this.contactRecords = '';
     }
   
 }
