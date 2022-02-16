@@ -1,0 +1,39 @@
+<template>
+    <div if:false={isreset}>
+        <lightning-layout horizontal-align="right">
+            <lightning-layout-item padding="around-small">
+        <div class="custom-box">
+        <lightning-icon icon-name="custom:custom103" alternative-text="Opportunity Name">
+        </lightning-icon>
+        {oppName}  
+    </div>
+    </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="right">
+        <lightning-layout-item padding="around-small">
+    <div class="custom-box">
+    <lightning-progress-indicator current-step={currentStage} type="path" variant="base">
+        <template for:each={steps} for:item="step">
+            <lightning-progress-step label={step.label} value={step.value} key={step.label}></lightning-progress-step>
+        </template>
+    </lightning-progress-indicator>
+   </div>
+   </lightning-layout-item>
+   </lightning-layout>
+    <lightning-record-view-form
+            record-id={recordid}
+            object-api-name="Opportunity"
+        >
+            <div class="slds-box">
+                <lightning-output-field field-name="Name">
+                </lightning-output-field>
+                <lightning-output-field field-name="Account.Name">
+                </lightning-output-field>
+                <lightning-output-field field-name="CloseDate">
+                </lightning-output-field>
+                <lightning-output-field field-name="Amount">
+                </lightning-output-field>
+            </div>
+        </lightning-record-view-form>
+    </div>
+</template>

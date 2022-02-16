@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-color__background_gray-1 slds-color__border_gray-12">
+        <div if:true={issearch}>
+            <lightning-icon icon-name="custom:custom40" title="Search Opportunity" size="xx-small">
+            </lightning-icon> Search Opportunity
+            <lightning-input type="text"
+            value={searchValue}
+            onchange={handleStringChange}>
+            </lightning-input>
+            </div>
+            <div if:false={issearch}>
+            <lightning-button label="Reset Search"
+            onclick={handleSearchChange}
+            class="slds-align_absolute-center"
+            variant="brand"></lightning-button>
+        </div>
+        <div if:true={opprecords}>
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-m-top_small">
+                <tbody>   
+                   <template for:each={opprecords} for:item="opp">
+                    <tr class="slds-hint-parent" key={opp.Id} data-id ={opp.Id} onclick={selectedOpportunity}>
+                        <td>{opp.Name}</td>
+                     </tr>
+                   </template>
+                </tbody>
+             </table>
+        </div>
+        <template if:true={isSelected}>
+            <c-opportunitydetail recordid = {oppId} isreset = {isreset}></c-opportunitydetail>
+        </template>
+         </div>
+</template>
