@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-size_1-of-2">
+    <lightning-card >
+            <div class="slds-m-horizontal_small">
+                <div class="slds-grid">
+                    <div class="slds-col">
+                        <lightning-button label="Subscribe" variant="brand" onclick={handleSubscribe}>
+                        </lightning-button>
+                    </div>
+                    <div class="slds-col">
+           <lightning-button label="Unsubscribe"  variant="destructive" onclick={handleUnsubscribe} >
+           </lightning-button>
+           </div>
+           <div class="slds-col">
+           <lightning-button label="Clear" variant="brand" onclick={handleClear}>
+           </lightning-button>
+       </div>
+       </div>
+    <template if:true={receivedMessage} for:each={receivedMessage} for:item="con" for:index="index">
+        <lightning-card key={con} variant="Narrow" title={con} icon-name="standard:contact">
+        </lightning-card>
+    </template>
+    </div>
+</lightning-card>
+</div>
+  </template>

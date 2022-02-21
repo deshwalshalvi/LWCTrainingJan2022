@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningMessageChannel>
+    <masterLabel>AccountData</masterLabel>
+    <isExposed>true</isExposed>
+
+    <description>
+        This is a channel which is used by LWC component to send data</description>
+    <lightningMessageFields>
+        <description>This is the Id of the record</description>
+        <fieldName>contact</fieldName>
+    </lightningMessageFields>
+</LightningMessageChannel>

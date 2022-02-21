@@ -1,0 +1,20 @@
+<template>
+    <lightning-card  variant="Narrow" title="Create Contact" icon-name="standard:contact">
+          <lightning-record-edit-form object-api-name="Contact" onsuccess={handleSuccess}>
+          <lightning-layout horizontal-align="space">
+                          <lightning-layout-item size="6"  padding="around-small">
+                             <lightning-input-field field-name="Name"> </lightning-input-field>
+                          </lightning-layout-item>
+                          <lightning-layout-item size="6"  padding="around-small">
+                            <lightning-input-field field-name="AccountId" required="true"> </lightning-input-field>
+                            <lightning-input-field field-name="Phone"> </lightning-input-field>
+                            </lightning-layout-item>
+                            
+          </lightning-layout>
+                      <div class="slds-text-align_center">
+                            <lightning-button variant="Neutral" type="Refresh" name="Refresh" label="Refresh" onclick={refreshcontact} class="slds-m-left_x-small"></lightning-button>
+                            <lightning-button variant="brand" type="submit" name="Save" label="Save" class="slds-m-left_x-small"></lightning-button>
+                      </div>
+                </lightning-record-edit-form>
+            </lightning-card>          
+</template>
